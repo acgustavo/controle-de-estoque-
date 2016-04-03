@@ -51,8 +51,12 @@ public class Test {
 		p1.getItens().add(ip3);
 		
 		System.out.println(loja.getEnderecos());
+		System.out.printf("\n\n");
 		System.out.println(loja);
+		System.out.printf("\n\n");
 		System.out.println(p1.getItens());
+		System.out.printf("\n\n");
+		System.out.println(p1.getValorTotal());
 		
 	}
 }

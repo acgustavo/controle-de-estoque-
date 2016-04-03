@@ -16,6 +16,7 @@ public class ItemPedido {
 		this.quantidade = quantidade;
 		this.produto = produto;
 		this.pedido = pedido;
+		this.valorUnitario = this.getProduto().getValorUnitario();
 	}
 
 	public Long getId() {
@@ -39,6 +40,7 @@ public class ItemPedido {
 	}
 
 	public void setValorUnitario(Double valorUnitario) {
+		valorUnitario=this.getProduto().getValorUnitario();
 		this.valorUnitario = valorUnitario;
 	}
 

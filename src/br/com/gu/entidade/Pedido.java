@@ -12,7 +12,7 @@ public class Pedido {
 	private Date dataEntrega;
 	private Double valorFrete;
 	private Double valorDesconto;
-	private Double valorTotal;
+	private double valorTotal = new Double (0);
 	private StatusPedido status;
 	private Usuario vendedor;
 	private Cliente cliente;
@@ -20,7 +20,7 @@ public class Pedido {
 	private List<ItemPedido> itens = new ArrayList<>();
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
+	
 	public Pedido() {
 		super();
 	}
@@ -88,10 +88,14 @@ public class Pedido {
 	}
 
 	public void setValorDesconto(Double valorDesconto) {
-		this.valorDesconto = valorDesconto;
+		
+		this.valorDesconto = this.valorTotal-valorDesconto;
 	}
 
 	public Double getValorTotal() {
+		valorTotal = 0;
+		for (ItemPedido i: this.getItens())
+			valorTotal += (i.getProduto().getValorUnitario()*i.getQuantidade());
 		return valorTotal;
 	}
 
